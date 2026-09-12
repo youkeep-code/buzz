@@ -80,6 +80,8 @@ test("opposite Tauri package variants own private frontend artifacts", async () 
   assert.equal(oss.observed, "0");
   assert.equal(internal.observed, "1");
   assert.notEqual(oss.output, internal.output);
+  assert.equal(path.isAbsolute(oss.configured), false);
+  assert.equal(path.isAbsolute(internal.configured), false);
 });
 
 test("private config precedes Cargo runner arguments", async () => {
